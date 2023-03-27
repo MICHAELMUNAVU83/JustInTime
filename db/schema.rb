@@ -36,7 +36,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_27_041206) do
     t.string "county"
     t.string "sub_county"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["reset_password_token"],
+            name: "index_users_on_reset_password_token",
+            unique: true
   end
 
   add_foreign_key "donations", "users"

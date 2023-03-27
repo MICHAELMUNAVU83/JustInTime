@@ -1,9 +1,7 @@
 require "application_system_test_case"
 
 class DonationsTest < ApplicationSystemTestCase
-  setup do
-    @donation = donations(:one)
-  end
+  setup { @donation = donations(:one) }
 
   test "visiting the index" do
     visit donations_url

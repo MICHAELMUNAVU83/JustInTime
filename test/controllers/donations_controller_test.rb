@@ -1,9 +1,7 @@
 require "test_helper"
 
 class DonationsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @donation = donations(:one)
-  end
+  setup { @donation = donations(:one) }
 
   test "should get index" do
     get donations_url
@@ -17,7 +15,16 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create donation" do
     assert_difference("Donation.count") do
-      post donations_url, params: { donation: { drop_off_point: @donation.drop_off_point, nature: @donation.nature, type_of_donation: @donation.type_of_donation, user_id: @donation.user_id, weight: @donation.weight } }
+      post donations_url,
+           params: {
+             donation: {
+               drop_off_point: @donation.drop_off_point,
+               nature: @donation.nature,
+               type_of_donation: @donation.type_of_donation,
+               user_id: @donation.user_id,
+               weight: @donation.weight
+             }
+           }
     end
 
     assert_redirected_to donation_url(Donation.last)
@@ -34,14 +41,21 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update donation" do
-    patch donation_url(@donation), params: { donation: { drop_off_point: @donation.drop_off_point, nature: @donation.nature, type_of_donation: @donation.type_of_donation, user_id: @donation.user_id, weight: @donation.weight } }
+    patch donation_url(@donation),
+          params: {
+            donation: {
+              drop_off_point: @donation.drop_off_point,
+              nature: @donation.nature,
+              type_of_donation: @donation.type_of_donation,
+              user_id: @donation.user_id,
+              weight: @donation.weight
+            }
+          }
     assert_redirected_to donation_url(@donation)
   end
 
   test "should destroy donation" do
-    assert_difference("Donation.count", -1) do
-      delete donation_url(@donation)
-    end
+    assert_difference("Donation.count", -1) { delete donation_url(@donation) }
 
     assert_redirected_to donations_url
   end
