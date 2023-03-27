@@ -1,0 +1,38 @@
+<%= form_with(model: donation) do |form| %>
+  <% if donation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+        <% donation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type_of_donation, style: "display: block" %>
+    <%= form.text_field :type_of_donation %>
+  </div>
+
+  <div>
+    <%= form.label :weight, style: "display: block" %>
+    <%= form.number_field :weight %>
+  </div>
+
+  <div>
+    <%= form.label :nature, style: "display: block" %>
+    <%= form.text_field :nature %>
+  </div>
+
+  <div>
+    <%= form.label :drop_off_point, style: "display: block" %>
+    <%= form.text_field :drop_off_point %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_of_donation: MyString
+  weight: 1
+  nature: MyString
+  drop_off_point: MyString
+  user: one
+
+two:
+  type_of_donation: MyString
+  weight: 1
+  nature: MyString
+  drop_off_point: MyString
+  user: two
