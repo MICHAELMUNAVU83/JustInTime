@@ -1,28 +1,17 @@
 Rails.application.routes.draw do
- 
- 
-  # resources :donations
-  devise_for  :users do
-    authenticated :user do
-      root to: "donations#index", as: :authenticated_root
-    end
+  resources :donations
+  devise_for  :users
 
-    unauthenticated do
-      root to: "pages#home", as: :unauthenticated_root
-    end
-
-
+  authenticated :user do
+    root to: "donations#index", as: :authenticated_root
   end
 
-  
-  # authenticated :user do
-  #   root to: "donations#index", as: :authenticated_root
-  # end
+  unauthenticated do
+    root to: "pages#home"
+  end
 
-  # unauthenticated do
-  #   root to: "pages#home", as: :unauthenticated_root
-  # end
 
+ 
 
 
   
